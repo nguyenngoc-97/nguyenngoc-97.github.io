@@ -16,20 +16,16 @@
     <h5>update: a few seconds ago<br>(NOTE: Not all countries update at the same time)
   </div>
   <div>
-    <h1 style="color: green;" id="total">864,690</h1>
+    <h1 style="color: green;" id="total">Loading...</h1>
     <h5>Total Confirmed</h5>
   </div>
   <div>
-    <h1 style="color:red;" id="dece">42,233</h1>
+    <h1 style="color:red;" id="dece">Loading...</h1>
     <h5>Total Deceased</h5>
   </div>
   <div>
-    <h1 style="color:orange;" id="ser">28,690</h1>
+    <h1 style="color:orange;" id="ser">Loading...</h1>
     <h5>Total Serious</h5>
-  </div>
-  <div>
-    <h1 style="color:blue;">176,403</h1>
-    <h5>Total Recovered</h5>
   </div>
 </div>
 
@@ -57,14 +53,38 @@ function httpGet()
           Recover = parseInt((dataTd[4].split(">"))[1]) + Recover
       }
     }
-    console.log(totalCase)
-    console.log(Death)
-    console.log(Recover)
     document.getElementById("total").textContent = totalCase;
     document.getElementById("dece").textContent = Death;
     document.getElementById("ser").textContent = Recover;
 }
+    
+httpG
 
+setInterval(function(){
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://docs.google.com/spreadsheets/d/e/2PACX-1vQuDj0R6K85sdtI8I-Tc7RCx8CnIxKUQue0TCUdrFOKDw9G3JRtGhl64laDd3apApEvIJTdPFJ9fEUL/pubhtml?gid=0&single=true&fbclid=IwAR3czc19tmrX0FhxoxbjH6-0DgdOzetPOr__rdXN59-VlqWgWbgjFvCQ5QM", false ); // false for synchronous request
+    xmlHttp.send( null );
+    var data = xmlHttp.responseText.split("tbody")
+    dataTbody = data[1]
+    dataTr = data[1].split("</tr>")
+    var totalCase = 0
+    var Death = 0
+    var Recover = 0
+    for (var i = 1; i < dataTr.length - 2; i++) {
+      dataTd = dataTr[i].split("</td>")
+      if(dataTd[2].split(">")[1]) {
+          if(dataTd[2].search("<td") == -1){
+              break
+          }
+          totalCase = parseInt((dataTd[2].split(">"))[1]) + totalCase
+          Death = parseInt((dataTd[3].split(">"))[1]) + Death
+          Recover = parseInt((dataTd[4].split(">"))[1]) + Recover
+      }
+    }
+    document.getElementById("total").textContent = totalCase;
+    document.getElementById("dece").textContent = Death;
+    document.getElementById("ser").textContent = Recover;
+}, 300000);
   
 </script>
 
