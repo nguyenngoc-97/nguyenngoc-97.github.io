@@ -20,7 +20,7 @@ function httpGet()
     var data = xmlHttp.responseText.split("tbody")
     dataTbody = data[1]
     dataTr = data[1].split("</tr>")
-    for (var i = 0; i < count(dataTr); i++) {
+    for (var i = 0; i < dataTr.length; i++) {
       console.log(dataTr[i]);
       console.log("\n");
     }
