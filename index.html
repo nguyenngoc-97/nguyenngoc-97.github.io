@@ -46,7 +46,7 @@ function httpGet()
     var totalCase = 0
     var Death = 0
     var Recover = 0
-    for (var 1 = 0; i < dataTr.length - 2; i++) {
+    for (var i = 1; i < dataTr.length - 2; i++) {
       dataTd = dataTr[i].split("</td>")
       if(dataTd[2].split(">")[1])
           console.log(dataTd[2])
