@@ -52,12 +52,14 @@ function httpGet()
           if(dataTd[2].search("<td") == -1){
               break
           }
-          totalCase = (dataTd[2].split(">"))[1]
-          totalCase = parseInt(totalCase)
-          console.log(totalCase);
-          console.log("\n");
+          totalCase = parseInt((dataTd[2].split(">"))[1]) + totalCase
+          Death = parseInt((dataTd[3].split(">"))[1]) + Death
+          Recover = parseInt((dataTd[3].split(">"))[1]) + Recover
       }
     }
+    console.log(totalCase)
+    console.log(Death)
+    console.log(Recover)
 }
 
   
