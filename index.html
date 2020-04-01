@@ -21,7 +21,9 @@ function httpGet()
     dataTbody = data[1]
     dataTr = data[1].split("</tr>")
     for (var i = 0; i < dataTr.length; i++) {
-      console.log(dataTr[i]);
+      dataTd = dataTr[i].split("</td>")
+      case = (dataTd[2].split("<"))[1]
+      console.log(case);
       console.log("\n");
     }
     console.log(data)
