@@ -48,12 +48,10 @@ function httpGet()
     var Recover = 0
     for (var i = 1; i < dataTr.length - 2; i++) {
       dataTd = dataTr[i].split("</td>")
-      if(dataTd[2].split(">")[1])
+      if(dataTd[2].split(">")[1]) 
           console.log(dataTd[2])
           totalCase = (dataTd[2].split(">"))[1]
           totalCase = parseInt(totalCase)
-          if(!totalCase)
-              break;
           console.log(totalCase);
           console.log("\n");
        
