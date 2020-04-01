@@ -50,7 +50,7 @@ function httpGet()
       dataTd = dataTr[i].split("</td>")
       if(dataTd[2].split(">")[1]) 
           console.log(dataTd[2])
-          if(dataTd[2] == "NaN")
+          if(dataTd[2] == "")
               break
           totalCase = (dataTd[2].split(">"))[1]
           totalCase = parseInt(totalCase)
