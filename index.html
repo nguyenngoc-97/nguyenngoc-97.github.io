@@ -52,11 +52,12 @@ function httpGet()
           console.log(dataTd[2])
           totalCase = (dataTd[2].split(">"))[1]
           totalCase = parseInt(totalCase)
+          if(!totalCase)
+              break;
           console.log(totalCase);
           console.log("\n");
        
     }
-    console.log(data)
 }
 
   
