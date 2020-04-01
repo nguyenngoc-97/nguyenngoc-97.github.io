@@ -46,7 +46,7 @@ function httpGet()
     var totalCase = 0
     for (var i = 0; i < dataTr.length; i++) {
       dataTd = dataTr[i].split("</td>")
-      if(totalCase = (dataTd[2].split(">"))[1])
+      if(dataTd[2].split(">"))[1])
           totalCase = (dataTd[2].split(">"))[1]
           totalCase = parseInt(totalCase)
           console.log(totalCase);
