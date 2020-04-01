@@ -43,11 +43,15 @@ function httpGet()
     var data = xmlHttp.responseText.split("tbody")
     dataTbody = data[1]
     dataTr = data[1].split("</tr>")
+    var totalCase = 0
     for (var i = 0; i < dataTr.length; i++) {
       dataTd = dataTr[i].split("</td>")
-      totalCase = (dataTd[2].split(">"))[1]
-      console.log(totalCase);
-      console.log("\n");
+      if(totalCase = (dataTd[2].split(">"))[1])
+          totalCase = (dataTd[2].split(">"))[1]
+          totalCase = parseInt(totalCase)
+          console.log(totalCase);
+          console.log("\n");
+       
     }
     console.log(data)
 }
