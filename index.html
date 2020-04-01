@@ -45,7 +45,7 @@ function httpGet()
     dataTr = data[1].split("</tr>")
     for (var i = 0; i < dataTr.length; i++) {
       dataTd = dataTr[i].split("</td>")
-      totalCase = (dataTd[2].split("<"))[1]
+      totalCase = (dataTd[2].split(">"))[1]
       console.log(totalCase);
       console.log("\n");
     }
