@@ -49,6 +49,8 @@ function httpGet()
     for (var i = 1; i < dataTr.length - 2; i++) {
       dataTd = dataTr[i].split("</td>")
       if(dataTd[2].split(">")[1]) 
+          print(dataTd[2])
+          print(typeof dataTd[2])
           if(dataTd[2] == "")
               break
           totalCase = (dataTd[2].split(">"))[1]
