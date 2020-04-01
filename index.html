@@ -16,15 +16,15 @@
     <h5>update: a few seconds ago<br>(NOTE: Not all countries update at the same time)
   </div>
   <div>
-    <h1 style="color: green;">864,690</h1>
+    <h1 style="color: green;" id="total">864,690</h1>
     <h5>Total Confirmed</h5>
   </div>
   <div>
-    <h1 style="color:red;">42,233</h1>
+    <h1 style="color:red;" id="dece">42,233</h1>
     <h5>Total Deceased</h5>
   </div>
   <div>
-    <h1 style="color:orange;">28,690</h1>
+    <h1 style="color:orange;" id="ser">28,690</h1>
     <h5>Total Serious</h5>
   </div>
   <div>
@@ -54,12 +54,15 @@ function httpGet()
           }
           totalCase = parseInt((dataTd[2].split(">"))[1]) + totalCase
           Death = parseInt((dataTd[3].split(">"))[1]) + Death
-          Recover = parseInt((dataTd[3].split(">"))[1]) + Recover
+          Recover = parseInt((dataTd[4].split(">"))[1]) + Recover
       }
     }
     console.log(totalCase)
     console.log(Death)
     console.log(Recover)
+    document.getElementById("total").textContent = totalCase;
+    document.getElementById("dece").textContent = Death;
+    document.getElementById("ser").textContent = Recover;
 }
 
   
